@@ -22,9 +22,20 @@ module "virtual_private_gateway_route" {
     source = "./virtual_private_gateway_route"
     route_table_id = module.route_tables[each.key].route_table_id
     virtual_private_gateway_route_conf = lookup(each.value.routes, "virtual_private_gateway_route" , "")
-  depends_on = [
-    module.route_tables
-  ]
+    depends_on = [
+      module.route_tables
+    ]
+}
+
+# Route via Egress Only Internet Gateway
+module "egress_only_internet_gateway_route" {
+    for_each = {for idx, route_tables in var.route_tables_conf.route_tables: idx =>route_tables}
+    source = "./egress_only_internet_gateway_route"
+    route_table_id = module.route_tables[each.key].route_table_id
+    egress_only_internet_gateway_route_conf = lookup(each.value.routes, "egress_only_internet_gateway_route" , "")
+    depends_on = [
+      module.route_tables
+    ]
 }
 
 

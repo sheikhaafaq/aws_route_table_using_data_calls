@@ -46,6 +46,19 @@ route_tables_conf = {
                 # ______________ END Internet Gateway Route ________________
 
 
+
+                # #-------------------------> Ingress Only Internet Gateway Route <----------------------------
+                # egress_only_internet_gateway_route = {
+                #         destination_ipv6_cidr_block = "::/0" #-->> DESTINATION 
+
+                #         egress_only_internet_gateway_id = "eigw-0106d53a9715da52f"  #-->> TARGET
+                        
+                #     }
+                #_________________END Ingress Only Internet Gateway Route ____________________________________
+
+
+
+
                 # # ------------->> Nat Gateway Route <<----------------------
                 # nat_gateway_routes = [
                 #     # Nat Gateways should be multiple
@@ -187,6 +200,7 @@ route_tables_conf = {
                 
                 # #-------------------------> Outpost Local Gateway Route <---------------------------------
                 # outpost_local_gateway_routes = [
+                #     # # ---> Outpost-Local-Gateway-route-one <---
                 #     {
                 #         destination_cidr_block = "10.3.0.0/16" #-->> DESTINATION 
 
@@ -200,6 +214,8 @@ route_tables_conf = {
 
                 # ]
                 #_________________END Outpost Local Gateway Route __________________________________________
+
+
 
             }#____END Routes_____
             
