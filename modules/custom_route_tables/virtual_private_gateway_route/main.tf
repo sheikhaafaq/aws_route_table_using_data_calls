@@ -11,5 +11,5 @@ resource "aws_route" "virtual_private_gw_route" {
 
 data "aws_vpn_gateway" "main" {
   count = (var.virtual_private_gateway_route_conf == "" ) ? 0 : 1
-  tags = var.virtual_private_gateway_route_conf[count.index].virtual_private_gateway_tags
+  tags = var.virtual_private_gateway_route_conf.virtual_private_gateway_tags
 }
